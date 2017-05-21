@@ -21,7 +21,7 @@ fun getJsonDataForStation(station : String): String? {
 
     val productsFilter = "1111111111111111"
 
-    val html = getHtmlData(station, day, time, productsFilter, 100)
+    val html = getHtmlData(station, day, time, productsFilter, 10)
 
     val htmlDocument = Jsoup.parse(html);
     val mainDiv = htmlDocument.select("div.clicktable")
@@ -53,6 +53,5 @@ fun getJsonDataForStation(station : String): String? {
     }
 
     val JSON = ObjectMapper().registerModule(KotlinModule())
-
     return JSON.writeValueAsString(resultList)
 }
