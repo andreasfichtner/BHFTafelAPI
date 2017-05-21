@@ -6,7 +6,7 @@ import org.jsoup.Jsoup
 import java.text.SimpleDateFormat
 import java.util.*
 
-fun getJsonDataForStation(station : String): String? {
+fun getDataForStation(station : String): List<ResponseItem> {
 
     // Set date format
     val simpleDateFormat = SimpleDateFormat()
@@ -52,6 +52,5 @@ fun getJsonDataForStation(station : String): String? {
         return@map responseItem
     }
 
-    val JSON = ObjectMapper().registerModule(KotlinModule())
-    return JSON.writeValueAsString(resultList)
+    return resultList
 }
