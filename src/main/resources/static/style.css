@@ -1,2 +1,3 @@
-th {text-align:left}
+body {width:80%; max-width:800px; margin-left:auto; margin-right:auto; margin-top:20px}
+table {margin-top:20px}
 .delayed {color:red}

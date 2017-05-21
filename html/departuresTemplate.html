@@ -1,24 +1,26 @@
 <html>
-<title>W3.CSS</title>
+<title>Abfahrten %station%</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
-<link rel="stylesheet" href="/lib/w3-theme-amber.css">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+<link rel="stylesheet" href="https://code.getmdl.io/1.3.0/material.blue_grey-orange.min.css" />
+<script defer src="https://code.getmdl.io/1.3.0/material.min.js"></script>
 <link rel="stylesheet" href="style.css">
 <body>
-
-<div class="w3-container w3-content">
-    <p class="w3-opacity"><b>Abfahrten ab %station%</b></p>
-    <div class="w3-panel w3-white w3-card-2 w3-display-container">
-        <table>
+<h2 style="text-align:center">%station%</h2>
+    <table class="mdl-data-table mdl-js-data-table mdl-shadow--2dp">
             <tr>
-                <th width="20%">Linie</th>
-                <th width="50%">Ziel</th>
-                <th width="30%">Abfahrt</th>
+                <th width="20%" style='align:left'>Linie</th>
+                <th width="50%" style='align:left'>Ziel</th>
+                <th width="25%" style='align:left'>Abfahrt</th>
+                <th width="5%"/>
             </tr>
             %tablerows%
-        </table>
-    </div>
+    </table>
 
+    <div style="text-align:center; margin-top:20px">
+        <button class="mdl-button mdl-js-button mdl-button--fab mdl-button--colored" onclick="location.reload();">
+            <i class="material-icons">refresh</i>
+        </button>
+    </div>
 </body>
 </html>

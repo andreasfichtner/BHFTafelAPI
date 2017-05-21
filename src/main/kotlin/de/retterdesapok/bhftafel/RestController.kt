@@ -37,16 +37,17 @@ class APIController {
 
         resultList.forEach{
 
-            val delayInfo = if (it.delay == null || it.delay <= 0) "" else " (+${it.delay})"
+            val delayInfo = if (it.delay == null || it.delay <= 0) "" else " +${it.delay}"
             val delayedClass = if (it.delay != null && it.delay > 0) "class='delayed'" else ""
 
             htmlTableRows.append("<tr>" +
                     "<td>${it.line}</td>" +
                     "<td>${it.destination}</td>" +
-                    "<td ${delayedClass}'>${simpleDateFormat.format(it.scheduledDate)}${delayInfo}</td>" +
+                    "<td>${simpleDateFormat.format(it.scheduledDate)}</td>" +
+                    "<td ${delayedClass} style='align:left'>${delayInfo}</td>" +
                     "</tr>")
         }
 
-        return htmlString.replace("%tablerows%", htmlTableRows.toString()).replace("%station%", station)
+        return htmlString.replace("%tablerows%", htmlTableRows.toString()).replace("%station%", station.capitalize())
     }
 }
