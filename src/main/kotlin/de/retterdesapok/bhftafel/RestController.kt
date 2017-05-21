@@ -48,6 +48,12 @@ class APIController {
                     "</tr>")
         }
 
+        if(resultList.isEmpty()) {
+            htmlTableRows.append("<tr>" +
+                    "<td colspan=4 style='text-align:center'><b>Derzeit keine Abfahrten</b></td>" +
+                    "</tr>")
+        }
+
         return htmlString.replace("%tablerows%", htmlTableRows.toString()).replace("%station%", station.capitalize())
     }
 }
