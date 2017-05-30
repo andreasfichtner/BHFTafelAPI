@@ -32,9 +32,16 @@ fun getDataForStation(station : String): List<ResponseItem> {
         val line = it.select("a span").text().replace("\\s*", "")
         val destination = it.childNode(1).outerHtml().substringAfter("&gt;&gt;").replace("\\s+,", "")
         val scheduledTime = it.select("span.bold")[1].text().replace("\\s*", "")
+        var canceled: Boolean = false
         var delay: Int? = null
         if (it.select("span").size >= 3) {
-            delay = it.select("span")[2].text().replace("\\s+", "").toInt()
+            val infoContent = it.select("span")[2].text().replace("\\s+", "")
+
+            if(infoContent.contains("Fahrt fällt aus")) {
+                canceled = true
+            } else {
+                delay = infoContent.toInt()
+            }
         }
 
         var scheduledDate = simpleDateFormat.parse("${day} ${scheduledTime}")
@@ -47,7 +54,7 @@ fun getDataForStation(station : String): List<ResponseItem> {
             scheduledDate = calendar.time
         }
 
-        val responseItem = ResponseItem(line, scheduledDate, delay, destination)
+        val responseItem = ResponseItem(line, scheduledDate, delay, canceled, destination)
 
         return@map responseItem
     }

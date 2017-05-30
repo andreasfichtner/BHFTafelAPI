@@ -6,6 +6,7 @@ import java.util.*
 data class ResponseItem(val line : String,
                         val scheduledDate: Date,
                         val delay: Int?,
+                        val canceled: Boolean,
                         val destination: String) {
 
     fun printDescription() {

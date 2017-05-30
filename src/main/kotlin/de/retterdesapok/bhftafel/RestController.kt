@@ -37,12 +37,13 @@ class APIController {
 
         resultList.forEach{
 
-            val delayInfo = if (it.delay == null || it.delay <= 0) "" else " +${it.delay}"
+            val canceledClass = if (it.canceled == false) "" else "class='canceled'"
+            val delayInfo = if (it.delay == null || it.delay <= 0) "" else " + ${it.delay}"
             val delayedClass = if (it.delay != null && it.delay > 0) "class='delayed'" else ""
 
             htmlTableRows.append("<tr>" +
                     "<td>${it.line}</td>" +
-                    "<td>${it.destination}</td>" +
+                    "<td ${canceledClass}>${it.destination}</td>" +
                     "<td>${simpleDateFormat.format(it.scheduledDate)}</td>" +
                     "<td ${delayedClass} style='align:left'>${delayInfo}</td>" +
                     "</tr>")
