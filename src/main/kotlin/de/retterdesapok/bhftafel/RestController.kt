@@ -44,8 +44,8 @@ class APIController {
             htmlTableRows.append("<tr>" +
                     "<td>${it.line}</td>" +
                     "<td ${canceledClass}>${it.destination}</td>" +
-                    "<td>${simpleDateFormat.format(it.scheduledDate)}</td>" +
-                    "<td ${delayedClass} style='align:left'>${delayInfo}</td>" +
+                    "<td style='text-align:right'>${simpleDateFormat.format(it.scheduledDate)}</td>" +
+                    "<td ${delayedClass} style='align:left; white-space:nowrap;'>${delayInfo}</td>" +
                     "</tr>")
         }
 
